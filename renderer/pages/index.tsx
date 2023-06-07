@@ -1,22 +1,23 @@
-import { useEffect } from 'react'
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { useEffect } from "react";
+import Link from "next/link";
+import Layout from "../components/Layout";
+import PopoverDemo from "@/ui/Popover";
 
 const IndexPage = () => {
   useEffect(() => {
-    const handleMessage = (_event, args) => alert(args)
+    const handleMessage = (_event, args) => alert(args);
 
     // add a listener to 'message' channel
     // ipc.addListener('message', handleMessage)
 
     return () => {
       // ipc.removeListener('message', handleMessage)
-    }
-  }, [])
+    };
+  }, []);
 
   const onSayHiClick = () => {
     // ipc.send('message', 'hi from next')
-  }
+  };
 
   return (
     <Layout title="Home | Next.js + TypeScript + Electron Example">
@@ -25,8 +26,11 @@ const IndexPage = () => {
       <p>
         <Link href="/about">About</Link>
       </p>
+      <div>
+        <PopoverDemo />
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
